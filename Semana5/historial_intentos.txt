@@ -1,0 +1,35 @@
+=================================
+Palabra secreta: atole
+Resultado: Victoria
+Intentos realizados: a,t,o,l,e
+=================================
+=================================
+Palabra secreta: maiz
+Resultado: Derrota
+Intentos realizados: a,t,c,s,p,r,f
+=================================
+=================================
+Palabra secreta: pozole
+Resultado: Victoria
+Intentos realizados: a,p,o,z,l,e
+=================================
+=================================
+Palabra secreta: mole
+Resultado: Derrota
+Intentos realizados: a,r,y,c,s,f
+=================================
+=================================
+Palabra secreta: tortilla
+Resultado: Victoria
+Intentos realizados: a,l,t,o,r,i
+=================================
+=================================
+Palabra secreta: tepache
+Resultado: Victoria
+Intentos realizados: a,p,s,e,t,c,h
+=================================
+=================================
+Palabra secreta: esquites
+Resultado: Victoria
+Intentos realizados: a,o,t,s,e,q,u,i
+=================================

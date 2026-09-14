@@ -1,0 +1,120 @@
+=================================
+Palabra secreta: agua
+Resultado: Victoria
+Intentos realizados: a,s,p,g,u
+=================================
+=================================
+Palabra secreta: trabajo
+Resultado: Victoria
+Intentos realizados: a,t,r,b,j,o
+=================================
+=================================
+Palabra secreta: agua
+Resultado: Victoria
+Intentos realizados: r,e,g,u,a
+=================================
+=================================
+Palabra secreta: trabajo
+Resultado: Derrota
+Intentos realizados: e,r,f,g,a,s,f,g
+=================================
+=================================
+Palabra secreta: camino
+Resultado: Victoria
+Intentos realizados: a,e,r,t,c,m,i,n,o
+=================================
+=================================
+Palabra secreta: trabajo
+Resultado: Victoria
+Intentos realizados: a,s,c,t,r,b,j,o
+=================================
+=================================
+Palabra secreta: agua
+Resultado: Victoria
+Intentos realizados: r,t,o,u,a,g
+=================================
+=================================
+Palabra secreta: camino
+Resultado: Victoria
+Intentos realizados: r,e,t,a,t,c,m,i,,n,o
+=================================
+=================================
+Palabra secreta: rosa
+Resultado: Derrota
+Intentos realizados: d,r,e,a,t,tr,f,g
+=================================
+=================================
+Palabra secreta: trabajo
+Resultado: Victoria
+Intentos realizados: a,c,t,r,b,j,o
+=================================
+=================================
+Palabra secreta: Claudia Sheimbaum
+Resultado: Derrota
+Intentos realizados: a,s,c,l,g,g,c,c
+=================================
+=================================
+Palabra secreta: Santa Anna
+Resultado: Derrota
+Intentos realizados: m,,g,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py
+=================================
+=================================
+Palabra secreta: Guadalupe Victoria
+Resultado: Derrota
+Intentos realizados: g,u,a,d,l,p,e,v,i,c,t,r,o,v,g,g, ,,g
+=================================
+=================================
+Palabra secreta: guadalupe victoria
+Resultado: Victoria
+Intentos realizados: g,u,a,d,al,l,p,e,v,i,c,t,o,r, 
+=================================
+=================================
+Palabra secreta: enfrijoladas
+Resultado: Derrota
+Intentos realizados: c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py,c:\users\usuario\appdata\local\programs\python\python314\python.exe c:/users/usuario/onedrive/phyton/semana5/#ahorcado.py
+=================================
+=================================
+Palabra secreta: maiz
+Resultado: Victoria
+Intentos realizados: a,t,s,m,i,,z
+=================================
+=================================
+Palabra secreta: tacos
+Resultado: Victoria
+Intentos realizados: n,e,a,t,m,c,o,s
+=================================
+=================================
+Palabra secreta: salsa
+Resultado: Victoria
+Intentos realizados: a,s,l
+=================================
+=================================
+Palabra secreta: enfrijoladas
+Resultado: Victoria
+Intentos realizados: t,c,e,n,f,r,i,j,o,l,a,d,s
+=================================
+=================================
+Palabra secreta: tortilla
+Resultado: Derrota
+Intentos realizados: a,,a,a,a,a,a,a,a,a,a,e,f,s,d,f,j
+=================================
+=================================
+Palabra secreta: pozol
+Resultado: Derrota
+Intentos realizados: s,d,s,d,s,d
+=================================
+=================================
+Palabra secreta: salsa
+Resultado: Derrota
+Intentos realizados: a,a,s,d,d,d,,,f,f,f
+=================================
+=================================
+Palabra secreta: enfrijoladas
+Resultado: Derrota
+Intentos realizados: a,s,a,s,a,s,a,s,a,s,f,g,g,h,g,h,b
+=================================
+=================================
+Palabra secreta: tejate
+Resultado: Derrota
+Intentos realizados: c,v,b,v,bn,v
+=================================

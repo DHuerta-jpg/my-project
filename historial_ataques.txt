@@ -1,0 +1,32 @@
+12
+7
+10
+10
+5
+7
+512101268El heroe causó 10 puntos de daño
+El villano causó 9 puntos de daño
+El heroe causó 8 puntos de daño
+El villano causó 5 puntos de daño
+El heroe causó 9 puntos de daño
+El villano causó 4 puntos de daño
+El heroe causó 7 puntos de daño
+El villano causó 5 puntos de daño
+El heroe causó 7 puntos de daño
+El villano causó 10 puntos de daño
+El heroe causó 5 puntos de daño
+El villano causó 9 puntos de daño
+El heroe causó 5 puntos de daño
+Heroe: 9
+Villano: 5
+Heroe: 7
+Villano: 9
+Heroe: 8
+Villano: 4
+Heroe: 5
+Villano: 9
+Heroe: 8
+Villano: 10
+Heroe: 11
+Villano: 6
+Heroe: 8

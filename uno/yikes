@@ -1,0 +1,7 @@
+peso=float(input("Peso: "))
+edad=int(input("Edad: "))
+texto=str(input("Nombre: "))
+
+print(type(peso))
+print(type(edad))
+print(type(texto))
