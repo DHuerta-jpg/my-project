@@ -1,4 +1,4 @@
-from random import random
+import random
 
 
 tareas = []
@@ -57,11 +57,14 @@ while True:
         #si no hay nada en la lista
         if len(tareas) == 0:
             print(">>> No hay tareas pendientes para girar la ruleta.")
-            continue
+        else:
+            tarea_seleccionada = random.choice(tarea)
+            print("La Ruleta ha selccionado... ")
+            print(f"{tarea_seleccionada}")
         
-    # Opcion_tarea =len(tareas)
-     #      random_index = random.randint(0, Opcion_tarea - 1)
-      #       tarea_seleccionada = tareas[random_index]  
+            Opcion_tarea = len(tareas)
+            random_index = random.randint(0, Opcion_tarea - 1)
+            tarea_seleccionada = tareas[random_index]
 
 #OPCIÓN 4: FIN
     elif opcion == "4":
