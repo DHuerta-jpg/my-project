@@ -7,7 +7,7 @@ hobbies = []
 
 #OPCION 1
 def agregar_tarea():
-    print("\n--- [REGISTRAR TAREA] ---")
+    print("\n--- REGISTRAR TAREA ---")
     #Selección de categoría
     print("\nSelecciona la categoria:")
     print("1. Urgente")
@@ -16,7 +16,7 @@ def agregar_tarea():
     categoria_opcion = input("Opcion (1-3): ").strip()
 
     while categoria_opcion not in ["1", "2", "3"]:
-        print(">>> ERROR: Categoria invalida.")
+        print("ERROR: Categoria invalida.")
         categoria_opcion = input("Opcion (1-3): ").strip()
 
     if categoria_opcion == "1":
@@ -30,13 +30,13 @@ def agregar_tarea():
     nombre_tarea = input("\nIngresa la tarea pendiente: ").strip()
 
     if nombre_tarea == "":
-        print(">>> ERROR: No se puede agregar una tarea vacia.")
+        print("ERROR: No se puede agregar una tarea vacia.")
         return
 
     # Validar si el nombre ya existe recorriendo la lista de diccionarios
     for t in tareas:
         if t["nombre"] == nombre_tarea:
-            print(">>> ERROR: La tarea ya esta en la lista.")
+            print("ERROR: La tarea ya esta en la lista.")
             return
 
     #Guardamos la tarea como un diccionario dentro de la lista
@@ -67,7 +67,7 @@ def print_tabla(nested_list, column_names):
 
 #OPCION 2:
 def mostrar_tareas():
-    print("\n--- [TAREAS PENDIENTES] ---")
+    print("\n--- Tareas Pendientes ---")
     if len(tareas) == 0:
         print(">>> No hay tareas pendientes.")
     else:
@@ -77,12 +77,12 @@ def mostrar_tareas():
 
 #OPCION 3:
 def girar_ruletas():
-    print("\n--- [RULETA DE ENFOQUE] ---")
+    print("\n--- RULETA DE ENFOQUE ---")
 
     #Separar tareas por su categoria para alimentar 2 ruletas distintas
     urgentes = [t["nombre"] for t in tareas if t["categoria"] == "Urgente"]
     semanales = [t["nombre"] for t in tareas if t["categoria"] == "Tarea para la semana"]
-    hobbies = [t["nombre"] for t in tareas if t["categoria"] == "Hobbies"]
+    hobbies_lista = [t["nombre"] for t in tareas if t["categoria"] == "Hobbie"]
 
 
     if len(urgentes) == 0 and len(semanales) == 0:
@@ -91,54 +91,88 @@ def girar_ruletas():
 
     print("\nGirando ruletas de Enfoque...\n")
     
-    #sleep
+    #el coso del tiempo
     vueltas = 15
     tiempo = 0.05
     for i in range(vueltas):
         # Muestra una opcion aleatoria si existe, o un texto por defecto
         temp_urgente = random.choice(urgentes) if len(urgentes) > 0 else "Sin urgentes"
         temp_semanal = random.choice(semanales) if len(semanales) > 0 else "Sin semanales"
-        temp_hobbies = random.choice(hobbies) if len(hobbies) > 0 else "Sin hobbies"
 
-        
-        print(f"\r  Urgente: [ {temp_urgente} ]   |   Semanal: [ {temp_semanal} ],",end="", flush=True)
+        #Animacion para la ruleta        
+        print(f"\r  Urgente: [ {temp_urgente} ]   |   Semanal: [ {temp_semanal} ] ",end="", flush=True)
         time.sleep(tiempo)
         tiempo += 0.01
 
-    #Seleccion final real
+    #Seleccion final
     ganador_urgente = random.choice(urgentes) if len(urgentes) > 0 else "Ninguna registrada"
     ganador_semanal = random.choice(semanales) if len(semanales) > 0 else "Ninguna registrada"
     
-    #Hobbie instantaneo
-    hobbie_recompensa = random.choice(hobbies)
+    #Seleccion del hobbie
+    hobbie_recompensa = random.choice(hobbies_lista) if len(hobbies_lista) > 0 else "Ninguna registrada"
 
     #Impresion de resultados finales
     print("\n\n==================================================")
-    print("  RESULTADOS DE TU SESION DE ENFOQUE")
+    print("  RESULTADOS DE LA RULETA  ")
     print("==================================================")
-    print(f"  * Tarea Urgente seleccionada: {ganador_urgente}")
-    print(f"  * Tarea Semanal seleccionada: {ganador_semanal}")
+    print(f" Tarea Urgente: {ganador_urgente}")
+    print(f" Tarea Semanal: {ganador_semanal}")
     print("--------------------------------------------------")
-    print(f"  RECOMPENSA DE HOBBIE (Instantaneo):")
-    print(f"    -> {hobbie_recompensa}")
+    print(f"  RECOMPENSA DE HOBBIE: Se te asignó un hobbie al azar!")
+    print(f"  ----> {hobbie_recompensa}")
     print("==================================================\n")
 
+    #OPCIÓN 4
+def completar_tareas():
+    print("\n--- Completar Tarea ---")
+    if len(tareas) == 0:
+        print(">>> No hay tareas que eliminar...")
+        return
+    
+    mostrar_tareas()
+
+    opcion=input("Ingresa el número de la tarea completada: ").strip()
+    #el isdigit para saber si el texto contiene solo números
+    if not opcion.isdigit():
+        print("ERROR: Ingresa un número válido.")
+        return
+
+    num = int(opcion)
+
+    #Para confirmar la eliminacion de tarea
+    #validar que el número exista en la lista
+    if 1 <= num <= len(tareas):
+        confirmar = input(f"¿Seguro de completar '{tareas[num - 1]['nombre']}'? (s/n):").strip().lower()
+
+        if confirmar == "s":
+            tarea_eliminada = tareas.pop(num - 1)
+            
+            #Guardar Tareas completadas con encoding=utf-8 para el español
+            with open("tareas_completadas.txt","a", encoding="utf-8") as archivo:
+                archivo.write(f"{tarea_eliminada['nombre']} | Categoría: {tarea_eliminada['categoria']}\n")
+            print(f"¡¡¡TAREA '{tarea_eliminada['nombre']}' COMPLETADA CON ÉXITO!!!")
+        else:
+            print("¡Operación cancelada!")
+    else:
+        print("ERROR: El número no existe en la lista")
 
 #Menu del programa
 while True:
     print("\n=========================")
     print(" FocusRoulette - Asistente de Enfoque")
+    print("\033[2mRegistrar, clasificar y elegir tareas pendientes\033[0m")
     print("=========================")
     print("1. Agregar Tarea pendiente")
     print("2. Ver lista de Tareas pendientes")
     print("3. ¡Girar la ruleta!")
-    print("4. Salir")
+    print("4. Completar Tarea")
+    print("5. Salir")
 
-    opcion = input("Selecciona una opción (1-4): ").strip()
+    opcion = input("Selecciona una opción (1-5): ").strip()
 
-    while opcion not in ["1", "2", "3", "4"]:
-        print(">>> ERROR: Opción inválida. Por favor, selecciona una opción válida (1-4).")
-        opcion = input("Selecciona una opción (1-4): ").strip()
+    while opcion not in ["1", "2", "3", "4", "5"]:
+        print("ERROR: Opción inválida. Por favor, selecciona una opción válida (1-5).")
+        opcion = input("Selecciona una opción (1-5): ").strip()
 
     if opcion == "1":
         agregar_tarea()
@@ -147,5 +181,7 @@ while True:
     elif opcion == "3":
         girar_ruletas()
     elif opcion == "4":
-        print("\n ¡Programa finalizado!")
+        completar_tareas()
+    elif opcion == "5":
+        print("\n ¡Eso es todo, amigos!")
         break
