@@ -33,6 +33,10 @@ def agregar_tarea():
         print("ERROR: No se puede agregar una tarea vacia.")
         return
 
+    #Limitar el número de caracteres por tarea agregando puntos suspensivos....
+    if len(nombre_tarea) > 30:
+        nombre_tarea = nombre_tarea[:27] + "..."
+
     # Validar si el nombre ya existe recorriendo la lista de diccionarios
     for t in tareas:
         if t["nombre"] == nombre_tarea:
@@ -64,7 +68,6 @@ def print_tabla(nested_list, column_names):
 
     print(divider)
 
-
 #OPCION 2:
 def mostrar_tareas():
     print("\n--- Tareas Pendientes ---")
@@ -74,7 +77,6 @@ def mostrar_tareas():
         tabla_datos = [[i + 1, tarea["nombre"], tarea["categoria"]] for i, tarea in enumerate(tareas)]
         print_tabla(tabla_datos, ["#", "Tarea", "Categoria"])
 
-
 #OPCION 3:
 def girar_ruletas():
     print("\n--- RULETA DE ENFOQUE ---")
@@ -82,7 +84,6 @@ def girar_ruletas():
     #Separar tareas por su categoria para alimentar 2 ruletas distintas
     urgentes = [t["nombre"] for t in tareas if t["categoria"] == "Urgente"]
     semanales = [t["nombre"] for t in tareas if t["categoria"] == "Tarea para la semana"]
-    hobbies_lista = [t["nombre"] for t in tareas if t["categoria"] == "Hobbie"]
 
 
     if len(urgentes) == 0 and len(semanales) == 0:
@@ -94,22 +95,41 @@ def girar_ruletas():
     #el coso del tiempo
     vueltas = 15
     tiempo = 0.05
-    for i in range(vueltas):
-        # Muestra una opcion aleatoria si existe, o un texto por defecto
-        temp_urgente = random.choice(urgentes) if len(urgentes) > 0 else "Sin urgentes"
-        temp_semanal = random.choice(semanales) if len(semanales) > 0 else "Sin semanales"
 
-        #Animacion para la ruleta        
-        print(f"\r  Urgente: [ {temp_urgente} ]   |   Semanal: [ {temp_semanal} ] ",end="", flush=True)
+    ganador_urgente = "Sin Urgentes"
+    ganador_semanal = "Sin Semanales"
+
+    for i in range(vueltas):
+        #Se muesta la tarea aleatoria
+        if len(urgentes) > 0:
+            ganador_urgente = random.choice(urgentes)
+
+        #selección aleatoria para la animacion
+        if len(semanales) > 0:
+            ganador_semanal = random.choice(semanales)
+
+        #si el número de caracteres es mayor a 15 se recorta y se agregan puntos suspensivos
+        if len(ganador_urgente) > 15:
+            rul_u = ganador_urgente[:12] + "..."
+        else:
+            rul_u = ganador_urgente
+
+
+        if len(ganador_semanal) > 15:
+            rul_s = ganador_semanal[:12] + "..."
+        else:
+            rul_s = ganador_semanal
+
+        #.ljust() para rellenar espacios
+        res_u = f"Urgente: [ {rul_u} ]".ljust(21)
+        res_s = f"Semanal: [ {rul_s} ]".ljust(21)
+
+        #Animacion para la ruleta, Flush = True para mostrar el texto
+        print(f"\r {res_u}   |    {res_s}",end="", flush=True)
         time.sleep(tiempo)
         tiempo += 0.01
 
-    #Seleccion final
-    ganador_urgente = random.choice(urgentes) if len(urgentes) > 0 else "Ninguna registrada"
-    ganador_semanal = random.choice(semanales) if len(semanales) > 0 else "Ninguna registrada"
-    
-    #Seleccion del hobbie
-    hobbie_recompensa = random.choice(hobbies_lista) if len(hobbies_lista) > 0 else "Ninguna registrada"
+  
 
     #Impresion de resultados finales
     print("\n\n==================================================")
@@ -118,11 +138,11 @@ def girar_ruletas():
     print(f" Tarea Urgente: {ganador_urgente}")
     print(f" Tarea Semanal: {ganador_semanal}")
     print("--------------------------------------------------")
-    print(f"  RECOMPENSA DE HOBBIE: Se te asignó un hobbie al azar!")
-    print(f"  ----> {hobbie_recompensa}")
+    print("\033[2mAhora puedes hacer estas asignaciones\033[0m")
+    print("\033[2m¡Cuando las hayas terminado, no olvides marcarlas como completadas!\033[0m")
     print("==================================================\n")
 
-    #OPCIÓN 4
+#OPCIÓN 4
 def completar_tareas():
     print("\n--- Completar Tarea ---")
     if len(tareas) == 0:
@@ -145,12 +165,41 @@ def completar_tareas():
         confirmar = input(f"¿Seguro de completar '{tareas[num - 1]['nombre']}'? (s/n):").strip().lower()
 
         if confirmar == "s":
-            tarea_eliminada = tareas.pop(num - 1)
+            tarea_eliminada = tareas.pop(num -1)
             
-            #Guardar Tareas completadas con encoding=utf-8 para el español
+            #Guardar Tareas completadas con encoding=utf-8 
             with open("tareas_completadas.txt","a", encoding="utf-8") as archivo:
                 archivo.write(f"{tarea_eliminada['nombre']} | Categoría: {tarea_eliminada['categoria']}\n")
             print(f"¡¡¡TAREA '{tarea_eliminada['nombre']}' COMPLETADA CON ÉXITO!!!")
+
+            hobbies_lista = [t["nombre"] for t in tareas if t["categoria"] == "Hobbie"]
+
+            if len(hobbies_lista) == 0:
+             print(">>>¡Agrega un Hobbie para seleccionar una recompensa!")
+            else:
+             print("\nGirando ruleta de recompensa...\n")
+
+             #animacion de vueltas para ruleta
+             vueltas = 15
+             tiempo = 0.05
+             for i in range(vueltas):
+                hobbie_recompensa = random.choice(hobbies_lista) 
+
+                if len(hobbie_recompensa) > 18:
+                    rul_h = hobbie_recompensa[:15] + "..." 
+                else: 
+                    rul_h = hobbie_recompensa
+
+
+                #flush=true para mostrar el texto     
+                print(f"\r  Hobbie: [ {rul_h} ]".ljust(35), end="", flush=True)
+                time.sleep(tiempo)
+                tiempo += 0.01
+
+             print("\n\n==================================================")
+             print(f"  RECOMPENSA DE HOBBIE: Se te asignó un hobbie al azar!")
+             print(f"  ----> {hobbie_recompensa}")
+             print("==================================================\n")
         else:
             print("¡Operación cancelada!")
     else:
