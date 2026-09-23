@@ -70,7 +70,7 @@ def print_tabla(nested_list, column_names):
 
 #OPCION 2:
 def mostrar_tareas():
-    print("\n--- Tareas Pendientes ---")
+    print(f"\n--- Tareas Pendientes de {name} ---")
     if len(tareas) == 0:
         print(">>> No hay tareas pendientes.")
     else:
@@ -175,7 +175,7 @@ def completar_tareas():
             hobbies_lista = [t["nombre"] for t in tareas if t["categoria"] == "Hobbie"]
 
             if len(hobbies_lista) == 0:
-             print(">>>¡Agrega un Hobbie para seleccionar una recompensa!")
+             print("\n>>>¡Agrega un Hobbie para seleccionar una recompensa!")
             else:
              print("\nGirando ruleta de recompensa...\n")
 
@@ -205,12 +205,21 @@ def completar_tareas():
     else:
         print("ERROR: El número no existe en la lista")
 
-#Menu del programa
+
+#Menu completo del programa
+name = ""
+while name == "":
+    name = input("Ingresa tu nombre: ")
+    if name == "":
+        print("ERROR: Escribe tu nombre")
+    else:
+        print(f"¡Hola {name}!, tu nombre ha sido registrado correctamente!")
+    
 while True:
     print("\n=========================")
-    print(" FocusRoulette - Asistente de Enfoque")
+    print("  FocusRoulette - Asistente de Enfoque")
     print("\033[2mRegistrar, clasificar y elegir tareas pendientes\033[0m")
-    print("=========================")
+    print("=========================")    
     print("1. Agregar Tarea pendiente")
     print("2. Ver lista de Tareas pendientes")
     print("3. ¡Girar la ruleta!")
@@ -232,5 +241,7 @@ while True:
     elif opcion == "4":
         completar_tareas()
     elif opcion == "5":
-        print("\n ¡Eso es todo, amigos!")
+        print("=======================")
+        print(f"  ¡Adiós, {name}!")
+        print("\033[2m¡Eso es todo, amigos!\033[0m")
         break
